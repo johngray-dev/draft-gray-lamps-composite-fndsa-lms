@@ -26,8 +26,12 @@ venue:
 author:
  -
     fullname: "John Gray"
-    organization: Your Organization Here
-    email: "55205977+johngray-dev@users.noreply.github.com"
+    organization: Entrust
+    email: john.gray@entrust.com
+    street: 2500 Solandt Road – Suite 100
+    city: Ottawa, Ontario
+    country: Canada
+    code: K2K 3G5
  -
     ins: J.P Fiset
     name: Jean-Pierre Fiset

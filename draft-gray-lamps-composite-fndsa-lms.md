@@ -43,7 +43,7 @@ author:
 
 normative:
   I-D.ietf-lamps-pq-composite-sigs:
-  
+
 informative:
 
 ...

@@ -5,14 +5,15 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Composite FN-DSA and LMS Digital Signature Algorithm for use in X.509 Public Key Infrastructure</title>
-<meta content="Your Name Here" name="author">
+<meta content="John Gray" name="author">
+<meta content="Jean-Pierre Fiset" name="author">
 <meta content="
        TODO Abstract 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
-<meta content="next generation" name="keyword">
-<meta content="unicorn" name="keyword">
-<meta content="sparkling distributed ledger" name="keyword">
+<meta content="composite" name="keyword">
+<meta content="fn-dsa" name="keyword">
+<meta content="lms" name="keyword">
 <meta content="draft-gray-lamps-composite-fndsa-lms-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.34.0
@@ -1049,7 +1050,7 @@ svg {
 <td class="right">June 2026</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Here</td>
+<td class="left">Gray &amp; Fiset</td>
 <td class="center">Expires 22 December 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1058,7 +1059,7 @@ svg {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">WG Working Group</dd>
+<dd class="workgroup">Limited Additional Mechanisms for PKIX and SMIME</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-gray-lamps-composite-fndsa-lms-latest</dd>
 <dt class="label-published">Published:</dt>
@@ -1069,11 +1070,15 @@ svg {
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
 <dd class="expires"><time datetime="2026-12-22">22 December 2026</time></dd>
-<dt class="label-authors">Author:</dt>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">Y. N. Here</div>
+      <div class="author-name">J. Gray</div>
 <div class="org">Your Organization Here</div>
+</div>
+<div class="author">
+      <div class="author-name">J. P. Fiset</div>
+<div class="org">Crypto4a</div>
 </div>
 </dd>
 </dl>
@@ -1089,14 +1094,15 @@ svg {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://example.com/LATEST">https://example.com/LATEST</a></span>.
+        The latest revision of this draft can be found at <span><a href="https://johngray-dev.github.io/draft-gray-lamps-composite-fndsa-lms/draft-gray-lamps-composite-fndsa-lms.html">https://johngray-dev.github.io/draft-gray-lamps-composite-fndsa-lms/draft-gray-lamps-composite-fndsa-lms.html</a></span>.
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-gray-lamps-composite-fndsa-lms/">https://datatracker.ietf.org/doc/draft-gray-lamps-composite-fndsa-lms/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
-        WG Working Group mailing list (<span><a href="mailto:WG@example.com">mailto:WG@example.com</a></span>),
-        which is archived at <span><a href="https://example.com/WG">https://example.com/WG</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+        Limited Additional Mechanisms for PKIX and SMIME Working Group mailing list (<span><a href="mailto:spasm@ietf.org">mailto:spasm@ietf.org</a></span>),
+        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/spasm/">https://mailarchive.ietf.org/arch/browse/spasm/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/spasm/">https://www.ietf.org/mailman/listinfo/spasm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/USER/REPO">https://github.com/USER/REPO</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/johngray-dev/draft-gray-lamps-composite-fndsa-lms">https://github.com/johngray-dev/draft-gray-lamps-composite-fndsa-lms</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1165,7 +1171,7 @@ svg {
             <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1212,6 +1218,10 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
+<dt id="I-D.ietf-lamps-pq-composite-sigs">[I-D.ietf-lamps-pq-composite-sigs]</dt>
+      <dd>
+<span class="refAuthor">Ounsworth, M.</span>, <span class="refAuthor">Gray, J.</span>, <span class="refAuthor">Pala, M.</span>, <span class="refAuthor">Klaußner, J.</span>, and <span class="refAuthor">S. Fluhrer</span>, <span class="refTitle">"Composite Module-Lattice-Based Digital Signature Algorithm (ML-DSA) for use in X.509 Public Key Infrastructure"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lamps-pq-composite-sigs-19</span>, <time datetime="2026-04-21" class="refDate">21 April 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lamps-pq-composite-sigs-19">https://datatracker.ietf.org/doc/html/draft-ietf-lamps-pq-composite-sigs-19</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
@@ -1233,15 +1243,24 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Your Name Here</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">John Gray</span></div>
 <div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
+<a href="mailto:55205977+johngray-dev@users.noreply.github.com" class="email">55205977+johngray-dev@users.noreply.github.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jean-Pierre Fiset</span></div>
+<div dir="auto" class="left"><span class="org">Crypto4a</span></div>
+<div dir="auto" class="left"><span class="country-name">Canada</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jp@crypto4a.com" class="email">jp@crypto4a.com</a>
 </div>
 </address>
 </section>

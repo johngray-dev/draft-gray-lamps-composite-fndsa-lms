@@ -2,10 +2,11 @@
 
 
 
-WG Working Group                                              Y. N. Here
+Limited Additional Mechanisms for PKIX and SMIME                 J. Gray
 Internet-Draft                                    Your Organization Here
-Intended status: Standards Track                            20 June 2026
-Expires: 22 December 2026
+Intended status: Standards Track                             J. P. Fiset
+Expires: 22 December 2026                                       Crypto4a
+                                                            20 June 2026
 
 
  Composite FN-DSA and LMS Digital Signature Algorithm for use in X.509
@@ -20,17 +21,20 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
+   The latest revision of this draft can be found at https://johngray-
+   dev.github.io/draft-gray-lamps-composite-fndsa-lms/draft-gray-lamps-
+   composite-fndsa-lms.html.  Status information for this document may
    be found at https://datatracker.ietf.org/doc/draft-gray-lamps-
    composite-fndsa-lms/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the Limited Additional
+   Mechanisms for PKIX and SMIME Working Group mailing list
+   (mailto:spasm@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/spasm/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/spasm/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/johngray-dev/draft-gray-lamps-composite-fndsa-lms.
 
 Status of This Memo
 
@@ -71,7 +75,7 @@ Table of Contents
    4.  IANA Considerations
    5.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -95,6 +99,15 @@ Table of Contents
 
 5.  Normative References
 
+   [I-D.ietf-lamps-pq-composite-sigs]
+              Ounsworth, M., Gray, J., Pala, M., Klaußner, J., and S.
+              Fluhrer, "Composite Module-Lattice-Based Digital Signature
+              Algorithm (ML-DSA) for use in X.509 Public Key
+              Infrastructure", Work in Progress, Internet-Draft, draft-
+              ietf-lamps-pq-composite-sigs-19, 21 April 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
+              pq-composite-sigs-19>.
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -108,8 +121,14 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
 
-   Your Name Here
+   John Gray
    Your Organization Here
-   Email: your.email@example.com
+   Email: 55205977+johngray-dev@users.noreply.github.com
+
+
+   Jean-Pierre Fiset
+   Crypto4a
+   Canada
+   Email: jp@crypto4a.com

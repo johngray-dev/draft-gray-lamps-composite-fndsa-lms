@@ -3,7 +3,7 @@
 
 
 Limited Additional Mechanisms for PKIX and SMIME                 J. Gray
-Internet-Draft                                    Your Organization Here
+Internet-Draft                                                   Entrust
 Intended status: Standards Track                             J. P. Fiset
 Expires: 22 December 2026                                       Crypto4a
                                                             20 June 2026
@@ -124,8 +124,11 @@ Acknowledgments
 Authors' Addresses
 
    John Gray
-   Your Organization Here
-   Email: 55205977+johngray-dev@users.noreply.github.com
+   Entrust
+   2500 Solandt Road – Suite 100
+   Ottawa, Ontario  K2K 3G5
+   Canada
+   Email: john.gray@entrust.com
 
 
    Jean-Pierre Fiset

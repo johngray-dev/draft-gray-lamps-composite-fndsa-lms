@@ -12,9 +12,9 @@ v: 3
 area: "Security"
 workgroup: "Limited Additional Mechanisms for PKIX and SMIME"
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - composite
+ - fn-dsa
+ - lms
 venue:
   group: "Limited Additional Mechanisms for PKIX and SMIME"
   type: "Working Group"
@@ -25,12 +25,25 @@ venue:
 
 author:
  -
-    fullname: "John Gray"
-    organization: Your Organization Here
-    email: "55205977+johngray-dev@users.noreply.github.com"
+    ins: J. Gray
+    name: John Gray
+    org: Entrust Limited
+    abbrev: Entrust
+    street: 2500 Solandt Road – Suite 100
+    city: Ottawa, Ontario
+    country: Canada
+    code: K2K 3G5
+    email: john.gray@entrust.com
+  -
+    ins: J.P Fiset
+    name: Jean-Pierre Fiset
+    org: Crypto4a
+    email: jp@crypto4a.com
+    country: Canada
 
 normative:
-
+  I-D.ietf-lamps-pq-composite-sigs:
+  
 informative:
 
 ...

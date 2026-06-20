@@ -19,11 +19,11 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "Composite FN-DSA and LMS Digital Signature Algorithm for use in X.509 Public Key Infrastructure"
+abbrev: "composite-fndsa-lms"
+category: std
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-gray-lamps-composite-fndsa-lms-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:

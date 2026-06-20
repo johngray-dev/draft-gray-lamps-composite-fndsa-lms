@@ -46,7 +46,7 @@ normative:
 
 informative:
   RFC9794:
-  
+
 ...
 
 --- abstract
@@ -160,7 +160,7 @@ Steps:
 Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
 
 Steps:
- 
+
 1. Deserialize:
    (fndsaPK, lmsPK) = DeserializePublicKey(pk)
    (fndsaSig, lmsSig) = DeserializeSignatureValue(s)

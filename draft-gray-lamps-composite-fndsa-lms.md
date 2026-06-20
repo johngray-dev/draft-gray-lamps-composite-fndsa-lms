@@ -25,16 +25,10 @@ venue:
 
 author:
  -
-    ins: J. Gray
-    name: John Gray
-    org: Entrust Limited
-    abbrev: Entrust
-    street: 2500 Solandt Road – Suite 100
-    city: Ottawa, Ontario
-    country: Canada
-    code: K2K 3G5
-    email: john.gray@entrust.com
-  -
+    fullname: "John Gray"
+    organization: Your Organization Here
+    email: "55205977+johngray-dev@users.noreply.github.com"
+ -
     ins: J.P Fiset
     name: Jean-Pierre Fiset
     org: Crypto4a

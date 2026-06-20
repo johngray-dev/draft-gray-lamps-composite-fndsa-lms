@@ -1,0 +1,94 @@
+Composite-FNDSA-LMS-2026
+  { iso(1) identified-organization(3) dod(6) internet(1)
+    security(5) mechanisms(5) pkix(7) id-mod(0)
+    id-mod-composite-fndsa-lms-2026(TBDMOD) }
+
+DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+EXPORTS ALL;
+
+IMPORTS
+  PUBLIC-KEY, SIGNATURE-ALGORITHM, SMIME-CAPS
+    FROM AlgorithmInformation-2009
+      { iso(1) identified-organization(3) dod(6) internet(1)
+        security(5) mechanisms(5) pkix(7) id-mod(0)
+        id-mod-algorithmInformation-02(58) }
+;
+
+--
+-- Object Identifiers
+--
+
+id-alg-composite-fndsa-lms OBJECT IDENTIFIER ::=
+  { iso(1) identified-organization(3) dod(6) internet(1)
+    security(5) mechanisms(5) pkix(7) alg(6) TBD }
+
+--
+-- Information Object Classes
+--
+
+pk-CompositeSignature {OBJECT IDENTIFIER:id}
+    PUBLIC-KEY ::= {
+      IDENTIFIER id
+      -- KEY no ASN.1 wrapping --
+      PARAMS ARE absent
+      CERT-KEY-USAGE {
+        digitalSignature,
+        nonRepudiation,
+        keyCertSign,
+        cRLSign
+      }
+      -- PRIVATE-KEY no ASN.1 wrapping --
+    }
+
+sa-CompositeSignature{OBJECT IDENTIFIER:id,
+   PUBLIC-KEY:publicKeyType }
+      SIGNATURE-ALGORITHM ::= {
+         IDENTIFIER id
+         -- VALUE no ASN.1 wrapping --
+         PARAMS ARE absent
+         PUBLIC-KEYS { publicKeyType }
+         SMIME-CAPS { IDENTIFIED BY id }
+      }
+
+--
+-- FN-DSA + LMS Algorithm Identifiers
+--
+
+-- FN-DSA-512 + LMS_SHA256_M32_H10
+id-FNDSA512-LMS-SHA256 OBJECT IDENTIFIER ::=
+  { id-alg-composite-fndsa-lms 1 }
+
+pk-FNDSA512-LMS-SHA256 PUBLIC-KEY ::=
+  pk-CompositeSignature { id-FNDSA512-LMS-SHA256 }
+
+sa-FNDSA512-LMS-SHA256 SIGNATURE-ALGORITHM ::=
+  sa-CompositeSignature {
+    id-FNDSA512-LMS-SHA256,
+    pk-FNDSA512-LMS-SHA256
+  }
+
+-- FN-DSA-1024 + LMS_SHA256_M32_H15
+id-FNDSA1024-LMS-SHA512 OBJECT IDENTIFIER ::=
+  { id-alg-composite-fndsa-lms 2 }
+
+pk-FNDSA1024-LMS-SHA512 PUBLIC-KEY ::=
+  pk-CompositeSignature { id-FNDSA1024-LMS-SHA512 }
+
+sa-FNDSA1024-LMS-SHA512 SIGNATURE-ALGORITHM ::=
+  sa-CompositeSignature {
+    id-FNDSA1024-LMS-SHA512,
+    pk-FNDSA1024-LMS-SHA512
+  }
+
+--
+-- Algorithm Set
+--
+
+CompositeFNDSA-LMSSignatureAlgorithmSet SIGNATURE-ALGORITHM ::= {
+  sa-FNDSA512-LMS-SHA256 |
+  sa-FNDSA1024-LMS-SHA512,
+  ...
+}
+
+END

@@ -165,15 +165,16 @@ Steps:
    (fndsaPK, lmsPK) = DeserializePublicKey(pk)
    (fndsaSig, lmsSig) = DeserializeSignatureValue(s)
 
-2. Compute M'
+2. Compute:
+   M' := Prefix || Label || len(ctx) || ctx || PH(M)
 
 3. Verify:
   FNDSA.Verify(fndsaPK, M', fndsaSig)
   LMS.Verify(lmsPK, M', lmsSig)
 
-Both MUST succeed.
+Both FNDSA.Verify() and LMS.Verify() MUST verify correctly.
 
-## Serialization
+## Serialization of Public and Privates Keys and Sigantures
 
 ### Public Key
 
@@ -215,7 +216,7 @@ Composite FN-DSA-LMS is used identically to other composite algorithms.
 - FN-DSA: FN-DSA-1024
 - LMS: LMS_SHA256_M32_H15
 
-TODO:  Define combinations here.
+TODO:  Define combinations here.  We want to keep the list as small as possible.
 
 
 # Security Considerations

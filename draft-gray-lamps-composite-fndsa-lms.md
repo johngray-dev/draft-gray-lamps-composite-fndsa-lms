@@ -115,6 +115,7 @@ Application-defined context (0–255 bytes).
 
 ## Key Generation
 
+```
 Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
 
 Steps:
@@ -128,11 +129,13 @@ Steps:
 
 pk = SerializePublicKey(fndsaPK, lmsPK)
 sk = SerializePrivateKey(fndsaSK, lmsSK)
+```
 
 ## Sign
 
 Signing follows a similar procedure as in [I-D.ietf-lamps-pq-composite-sigs].
 
+```
 Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
 
 Steps:
@@ -152,9 +155,11 @@ Steps:
 
 5. Output:
   s = SerializeSignatureValue(fndsaSig, lmsSig)
+```
 
 ## Verify
 
+```
 Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
 
 Steps:
@@ -171,24 +176,31 @@ Steps:
   LMS.Verify(lmsPK, M', lmsSig)
 
 Both FNDSA.Verify() and LMS.Verify() MUST verify correctly.
+```
 
 ## Serialization of Public and Privates Keys and Sigantures
 
 ### Public Key
 
+```
 SerializePublicKey(fndsaPK, lmsPK):
 return fndsaPK || lmsPK
+```
 
 ### Private Key
 
+```
 SerializePrivateKey(fndsaSK, lmsSK):
 return fndsaSK || lmsSK
+```
 
 ### Signature
 LMS signatures are variable length. Parsing relies on the fixed size of the FN-DSA signature.
 
+```
 SerializeSignatureValue(fndsaSig, lmsSig):
 return fndsaSig || lmsSig
+```
 
 # Use within X.509 and PKIX
 
@@ -214,7 +226,7 @@ Composite FN-DSA-LMS is used identically to other composite algorithms.
 - FN-DSA: FN-DSA-1024
 - LMS: LMS_SHA256_M32_H15
 
-TODO:  Define combinations here.  We want to keep the list as small as possible.
+TODO:  Define other combinations here.  We want to keep the list as small as possible.
 
 
 # Security Considerations

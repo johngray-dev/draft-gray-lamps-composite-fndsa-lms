@@ -63,7 +63,7 @@ This document defines a composite signature scheme combining:
 The reason for this choice of algorithm combination:
 
 - Both FN-DSA and LMS are believed to be quantum resistant algorithms (PQ/PQ Hybrid).
-- They use completely different hardness problems (lattice based verses stateful hash based).
+- They use completely different hardness problems (lattice based versus stateful hash based).
 - If relevent attacks or implementations bugs are found in either algorithm there is resiliency.
 - FN-DSA can help mitigate the risk of operational errors that lead to state failure in LMS.
 - Combined together they produce a compact PQ/PQ composite signature ideally suited for high value assets in constrained environments.
@@ -226,6 +226,14 @@ Composite FN-DSA-LMS is used identically to other composite algorithms.
 - PH: SHA512
 - FN-DSA: FN-DSA-1024
 - LMS: LMS_SHA256_M32_H15
+
+## id-FNDSA512-LMS-SHA256_192
+
+- Label: `COMPSIG-FNDSA512-LMS-SHA256_192`
+- PH: SHA256
+- FN-DSA: FN-DSA-512
+- LMS: LMS_SHA256_M24_H10
+
 
 TODO:  Define other combinations here.  We want to keep the list as small as possible.
 

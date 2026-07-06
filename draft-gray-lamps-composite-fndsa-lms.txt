@@ -91,6 +91,7 @@ Table of Contents
    6.  Algorithm Identifiers
      6.1.  id-FNDSA512-LMS-SHA256
      6.2.  id-FNDSA1024-LMS-SHA512
+     6.3.  id-FNDSA512-LMS-SHA256_192
    7.  Security Considerations
      7.1.  LMS Statefulness Requirement
      7.2.  Hybrid Security
@@ -115,7 +116,7 @@ Table of Contents
       algorithms (PQ/PQ Hybrid).
 
    *  They use completely different hardness problems (lattice based
-      verses stateful hash based).
+      versus stateful hash based).
 
    *  If relevent attacks or implementations bugs are found in either
       algorithm there is resiliency.
@@ -285,6 +286,16 @@ Table of Contents
    *  FN-DSA: FN-DSA-1024
 
    *  LMS: LMS_SHA256_M32_H15
+
+6.3.  id-FNDSA512-LMS-SHA256_192
+
+   *  Label: COMPSIG-FNDSA512-LMS-SHA256_192
+
+   *  PH: SHA256
+
+   *  FN-DSA: FN-DSA-512
+
+   *  LMS: LMS_SHA256_M24_H10
 
    TODO: Define other combinations here.  We want to keep the list as
    small as possible.

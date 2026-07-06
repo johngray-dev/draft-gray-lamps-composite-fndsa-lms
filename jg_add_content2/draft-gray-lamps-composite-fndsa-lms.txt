@@ -78,9 +78,13 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Overview of the Composite FN-DSA-LMS Scheme
      3.1.  Pre-hashing
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  Normative References
+     3.2.  Prefix, Label, and Context
+   4.  Composite Functions
+     4.1.  Key Generation
+     4.2.  Sign
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -135,15 +139,58 @@ Table of Contents
 
    M' := Prefix || Label || len(ctx) || ctx || PH(M)
 
-4.  Security Considerations
+3.2.  Prefix, Label, and Context
+
+   Prefix: Always set to "CompositeAlgorithmSignatures2025" as in
+   [I-D.ietf-lamps-pq-composite-sigs].
+
+   Label: Unique per algorithm OID (defined in table below)
+
+   ctx: Application-defined context (0–255 bytes).
+
+4.  Composite Functions
+
+4.1.  Key Generation
+
+   Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
+
+   Steps:
+
+   1.  Generate component keys:
+
+   (fndsaPK, fndsaSK) = FNDSA.KeyGen() (lmsPK, lmsSK) = LMS.KeyGen()
+
+   1.  Output:
+
+   pk = SerializePublicKey(fndsaPK, lmsPK) sk =
+   SerializePrivateKey(fndsaSK, lmsSK)
+
+4.2.  Sign
+
+   Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
+
+   Steps:
+
+   1.  Check: if len(ctx) > 255: error
+
+   2.  Compute: M' := Prefix || Label || len(ctx) || ctx || PH(M)
+
+   3.  Deserialize keys: (fndsaSK, lmsSK) = DeserializePrivateKey(sk)
+
+   4.  Sign: fndsaSig = FNDSA.Sign(fndsaSK, M') lmsSig = LMS.Sign(lmsSK,
+       M')
+
+   5.  Output: s = SerializeSignatureValue(fndsaSig, lmsSig)
+
+5.  Security Considerations
 
    TODO Security
 
-5.  IANA Considerations
+6.  IANA Considerations
 
    This document has no IANA actions.
 
-6.  Normative References
+7.  Normative References
 
    [I-D.ietf-lamps-pq-composite-sigs]
               Ounsworth, M., Gray, J., Pala, M., Klaußner, J., and S.

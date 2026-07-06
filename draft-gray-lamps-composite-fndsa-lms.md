@@ -55,7 +55,16 @@ TODO Abstract
 
 # Introduction
 
-TODO Introduction
+Post-Quantum Cryptography (PQC) introduces new cryptographic primitives that may require operational experience and hardening prior to full deployment. Hybrid mechanisms enable combining multiple algorithms such that security is preserved if at least one remains secure.
+
+This document defines a composite signature scheme combining:
+
+- FN-DSA (Falcon), a lattice-based signature algorithm
+- LMS, a stateful hash-based signature algorithm [RFC8554]
+
+The composite construction presents a single algorithm interface while internally invoking both primitives.
+
+This specification follows the composite design framework described in [I-D.ietf-lamps-pq-composite-sigs].
 
 
 # Conventions and Definitions

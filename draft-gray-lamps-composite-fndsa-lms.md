@@ -75,6 +75,31 @@ This specification follows the composite design framework described in [I-D.ietf
 
 {::boilerplate bcp14-tagged}
 
+# Overview of the Composite FN-DSA-LMS Scheme
+
+Composite FN-DSA-LMS is a hybrid signature scheme formed by combining FN-DSA and LMS.
+
+The construction follows the composite signature combiner approach:
+
+```
+M' := Prefix || Label || len(ctx) || ctx || PH(M)
+```
+
+Both component algorithms independently sign `M'`.
+
+## Pre-hashing
+
+Composite FN-DSA-LMS uses a pre-hash function PH:
+
+PH(M)
+
+This is incorporated into the message representative:
+
+```
+M' := Prefix || Label || len(ctx) || ctx || PH(M)
+```
+
+
 
 # Security Considerations
 

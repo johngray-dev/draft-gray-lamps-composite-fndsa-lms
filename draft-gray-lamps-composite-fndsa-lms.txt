@@ -168,71 +168,83 @@ Table of Contents
 
 4.1.  Key Generation
 
-   ``` Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
+   Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
 
    Steps:
 
-   1.  Generate component keys:
+   1. Generate component keys:
 
-   (fndsaPK, fndsaSK) = FNDSA.KeyGen() (lmsPK, lmsSK) = LMS.KeyGen()
+   (fndsaPK, fndsaSK) = FNDSA.KeyGen()
+   (lmsPK, lmsSK)     = LMS.KeyGen()
 
-   1.  Output:
+   2. Output:
 
-   pk = SerializePublicKey(fndsaPK, lmsPK) sk =
-   SerializePrivateKey(fndsaSK, lmsSK) ```
+   pk = SerializePublicKey(fndsaPK, lmsPK)
+   sk = SerializePrivateKey(fndsaSK, lmsSK)
 
 4.2.  Sign
 
    Signing follows a similar procedure as in
    [I-D.ietf-lamps-pq-composite-sigs].
 
-   ``` Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
+   Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
 
    Steps:
 
-   1.  Check: if len(ctx) > 255: error
+   1. Check:
+      if len(ctx) > 255: error
 
-   2.  Compute: M' := Prefix || Label || len(ctx) || ctx || PH(M)
+   2. Compute:
+      M' := Prefix || Label || len(ctx) || ctx || PH(M)
 
-   3.  Deserialize keys: (fndsaSK, lmsSK) = DeserializePrivateKey(sk)
+   3. Deserialize keys:
+     (fndsaSK, lmsSK) = DeserializePrivateKey(sk)
 
-   4.  Sign: fndsaSig = FNDSA.Sign(fndsaSK, M') lmsSig = LMS.Sign(lmsSK,
-       M')
+   4. Sign:
+     fndsaSig = FNDSA.Sign(fndsaSK, M')
+     lmsSig   = LMS.Sign(lmsSK, M')
 
-   5.  Output: s = SerializeSignatureValue(fndsaSig, lmsSig) ```
+   5. Output:
+     s = SerializeSignatureValue(fndsaSig, lmsSig)
 
 4.3.  Verify
 
-   ``` Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
+   Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
 
    Steps:
 
-   1.  Deserialize: (fndsaPK, lmsPK) = DeserializePublicKey(pk)
-       (fndsaSig, lmsSig) = DeserializeSignatureValue(s)
+   1. Deserialize:
+      (fndsaPK, lmsPK) = DeserializePublicKey(pk)
+      (fndsaSig, lmsSig) = DeserializeSignatureValue(s)
 
-   2.  Compute: M' := Prefix || Label || len(ctx) || ctx || PH(M)
+   2. Compute:
+      M' := Prefix || Label || len(ctx) || ctx || PH(M)
 
-   3.  Verify: FNDSA.Verify(fndsaPK, M', fndsaSig) LMS.Verify(lmsPK, M',
-       lmsSig)
+   3. Verify:
+     FNDSA.Verify(fndsaPK, M', fndsaSig)
+     LMS.Verify(lmsPK, M', lmsSig)
 
-   Both FNDSA.Verify() and LMS.Verify() MUST verify correctly. ```
+   Both FNDSA.Verify() and LMS.Verify() MUST verify correctly.
 
 4.4.  Serialization of Public and Privates Keys and Sigantures
 
 4.4.1.  Public Key
 
-   SerializePublicKey(fndsaPK, lmsPK): return fndsaPK || lmsPK
+   SerializePublicKey(fndsaPK, lmsPK):
+   return fndsaPK || lmsPK
 
 4.4.2.  Private Key
 
-   SerializePrivateKey(fndsaSK, lmsSK): return fndsaSK || lmsSK
+   SerializePrivateKey(fndsaSK, lmsSK):
+   return fndsaSK || lmsSK
 
 4.4.3.  Signature
 
    LMS signatures are variable length.  Parsing relies on the fixed size
    of the FN-DSA signature.
 
-   SerializeSignatureValue(fndsaSig, lmsSig): return fndsaSig || lmsSig
+   SerializeSignatureValue(fndsaSig, lmsSig):
+   return fndsaSig || lmsSig
 
 5.  Use within X.509 and PKIX
 

@@ -336,6 +336,16 @@ Table of Contents
 
 9.  Normative References
 
+   [I-D.ietf-lamps-fn-dsa-certificates]
+              Massimo, J., Kampanakis, P., Turner, S., and B.
+              Westerbaan, "Internet X.509 Public Key Infrastructure --
+              Algorithm Identifiers for the Fast-Fourier Transform over
+              NTRU-Lattice-Based Digital Signature Algorithm (FN-DSA)",
+              Work in Progress, Internet-Draft, draft-ietf-lamps-fn-dsa-
+              certificates-00, 20 May 2026,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
+              fn-dsa-certificates-00>.
+
    [I-D.ietf-lamps-pq-composite-sigs]
               Ounsworth, M., Gray, J., Pala, M., Klaußner, J., and S.
               Fluhrer, "Composite Module-Lattice-Based Digital Signature
@@ -353,6 +363,15 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8554]  McGrew, D., Curcio, M., and S. Fluhrer, "Leighton-Micali
+              Hash-Based Signatures", RFC 8554, DOI 10.17487/RFC8554,
+              April 2019, <https://www.rfc-editor.org/rfc/rfc8554>.
+
+   [RFC9858]  Fluhrer, S. and Q. Dang, "Additional Parameter Sets for
+              HSS/LMS Hash-Based Signatures", RFC 9858,
+              DOI 10.17487/RFC9858, October 2025,
+              <https://www.rfc-editor.org/rfc/rfc9858>.
 
 Acknowledgments
 

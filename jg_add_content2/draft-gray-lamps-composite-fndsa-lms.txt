@@ -76,9 +76,11 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  Overview of the Composite FN-DSA-LMS Scheme
+     3.1.  Pre-hashing
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -112,15 +114,36 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Overview of the Composite FN-DSA-LMS Scheme
+
+   Composite FN-DSA-LMS is a hybrid signature scheme formed by combining
+   FN-DSA and LMS.
+
+   The construction follows the composite signature combiner approach:
+
+   M' := Prefix || Label || len(ctx) || ctx || PH(M)
+
+   Both component algorithms independently sign M'.
+
+3.1.  Pre-hashing
+
+   Composite FN-DSA-LMS uses a pre-hash function PH:
+
+   PH(M)
+
+   This is incorporated into the message representative:
+
+   M' := Prefix || Label || len(ctx) || ctx || PH(M)
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+5.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+6.  Normative References
 
    [I-D.ietf-lamps-pq-composite-sigs]
               Ounsworth, M., Gray, J., Pala, M., Klaußner, J., and S.

@@ -82,9 +82,18 @@ Table of Contents
    4.  Composite Functions
      4.1.  Key Generation
      4.2.  Sign
-   5.  Security Considerations
-   6.  IANA Considerations
-   7.  Normative References
+     4.3.  Verify
+     4.4.  Serialization of Public and Privates Keys and Sigantures
+       4.4.1.  Public Key
+       4.4.2.  Private Key
+       4.4.3.  Signature
+   5.  Use within X.509 and PKIX
+   6.  Algorithm Identifiers
+     6.1.  id-FNDSA512-LMS-SHA256
+     6.2.  id-FNDSA1024-LMS-SHA512
+   7.  Security Considerations
+   8.  IANA Considerations
+   9.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -167,6 +176,9 @@ Table of Contents
 
 4.2.  Sign
 
+   Signing follows a similar procedure as in
+   [I-D.ietf-lamps-pq-composite-sigs].
+
    Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
 
    Steps:
@@ -182,15 +194,84 @@ Table of Contents
 
    5.  Output: s = SerializeSignatureValue(fndsaSig, lmsSig)
 
-5.  Security Considerations
+4.3.  Verify
+
+   Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
+
+   Steps:
+
+   1.  Deserialize: (fndsaPK, lmsPK) = DeserializePublicKey(pk)
+       (fndsaSig, lmsSig) = DeserializeSignatureValue(s)
+
+   2.  Compute: M' := Prefix || Label || len(ctx) || ctx || PH(M)
+
+   3.  Verify: FNDSA.Verify(fndsaPK, M', fndsaSig) LMS.Verify(lmsPK, M',
+       lmsSig)
+
+   Both FNDSA.Verify() and LMS.Verify() MUST verify correctly.
+
+4.4.  Serialization of Public and Privates Keys and Sigantures
+
+4.4.1.  Public Key
+
+   SerializePublicKey(fndsaPK, lmsPK): return fndsaPK || lmsPK
+
+4.4.2.  Private Key
+
+   SerializePrivateKey(fndsaSK, lmsSK): return fndsaSK || lmsSK
+
+4.4.3.  Signature
+
+   LMS signatures are variable length.  Parsing relies on the fixed size
+   of the FN-DSA signature.
+
+   SerializeSignatureValue(fndsaSig, lmsSig): return fndsaSig || lmsSig
+
+5.  Use within X.509 and PKIX
+
+   Composite FN-DSA-LMS is used identically to other composite
+   algorithms.
+
+   *  Public key encoded as BIT STRING
+
+   *  Signature encoded as BIT STRING
+
+   *  Raw serialized values used without ASN.1 wrapping
+
+6.  Algorithm Identifiers
+
+6.1.  id-FNDSA512-LMS-SHA256
+
+   *  Label: COMPSIG-FNDSA512-LMS-SHA256
+
+   *  PH: SHA256
+
+   *  FN-DSA: FN-DSA-512
+
+   *  LMS: LMS_SHA256_M32_H10
+
+6.2.  id-FNDSA1024-LMS-SHA512
+
+   *  Label: COMPSIG-FNDSA1024-LMS-SHA512
+
+   *  PH: SHA512
+
+   *  FN-DSA: FN-DSA-1024
+
+   *  LMS: LMS_SHA256_M32_H15
+
+   TODO: Define combinations here.  We want to keep the list as small as
+   possible.
+
+7.  Security Considerations
 
    TODO Security
 
-6.  IANA Considerations
+8.  IANA Considerations
 
    This document has no IANA actions.
 
-7.  Normative References
+9.  Normative References
 
    [I-D.ietf-lamps-pq-composite-sigs]
               Ounsworth, M., Gray, J., Pala, M., Klaußner, J., and S.

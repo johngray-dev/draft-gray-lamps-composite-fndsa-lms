@@ -152,8 +152,6 @@ Steps:
 5. Output:
   s = SerializeSignatureValue(fndsaSig, lmsSig)
 
----
-
 ## Verify
 
 Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean

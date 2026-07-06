@@ -84,17 +84,19 @@ Table of Contents
 
 1.  Introduction
 
-   Post-Quantum Cryptography (PQC) introduces new cryptographic
-   primitives that may require operational experience and hardening
-   prior to full deployment.  Hybrid mechanisms enable combining
-   multiple algorithms such that security is preserved if at least one
-   remains secure.
-
    This document defines a composite signature scheme combining:
 
    *  FN-DSA (Falcon), a lattice-based signature algorithm
 
    *  LMS, a stateful hash-based signature algorithm [RFC8554]
+
+   The reason for this choice of algorithm combination: - Both FN-DSA
+   and LMS are believed to be quantum resistant algorithms (PQ/PQ
+   Hybrid). - They use completely different hardness problems (lattice
+   based verses stateful hash based). - FN-DSA can help mitigate the
+   risk of implementation errors leading to state failure in LMS. -
+   Combined together they produce the smallest composite signature in
+   terms of key and signature sizes.
 
    The composite construction presents a single algorithm interface
    while internally invoking both primitives.

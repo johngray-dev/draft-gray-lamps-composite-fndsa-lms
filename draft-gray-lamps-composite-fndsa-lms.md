@@ -41,6 +41,9 @@ author:
 
 normative:
   I-D.ietf-lamps-pq-composite-sigs:
+  I-D.ietf-lamps-fn-dsa-certificates:
+  RFC8554:
+  RFC9858:
 
 informative:
 

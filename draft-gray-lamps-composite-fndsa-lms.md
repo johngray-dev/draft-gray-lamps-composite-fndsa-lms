@@ -219,12 +219,35 @@ TODO:  Define combinations here.  We want to keep the list as small as possible.
 
 # Security Considerations
 
-TODO Security
+## LMS Statefulness Requirement
+
+LMS private keys are stateful.
+
+Each invocation of LMS.Sign MUST use a unique leaf index. Reuse of a leaf index results in catastrophic loss of security.
+
+## Hybrid Security
+
+Composite FN-DSA-LMS is EUF-CMA secure if at least one component remains secure.
+
+## SUF-CMA
+
+Composite FN-DSA-LMS is NOT SUF-CMA secure.
+
+## Key Reuse
+
+Component keys MUST NOT be reused between:
+
+- composite vs standalone
+- multiple composites
 
 
 # IANA Considerations
 
-This document has no IANA actions.
+IANA is requested to assign OIDs under:
+
+1.3.6.1.5.5.7.6
+
+TODO for each combination
 
 
 --- back

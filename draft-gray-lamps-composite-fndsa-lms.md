@@ -61,6 +61,7 @@ This document defines a composite signature scheme combining:
 - LMS, a stateful hash-based signature algorithm [RFC8554]
 
 The reason for this choice of algorithm combination:
+
 - Both FN-DSA and LMS are believed to be quantum resistant algorithms (PQ/PQ Hybrid).
 - They use completely different hardness problems (lattice based verses stateful hash based).
 - If relevent attacks or implementations bugs are found in either algorithm there is resiliency.

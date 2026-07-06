@@ -168,7 +168,7 @@ Table of Contents
 
 4.1.  Key Generation
 
-   Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
+   ``` Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
 
    Steps:
 
@@ -179,14 +179,14 @@ Table of Contents
    1.  Output:
 
    pk = SerializePublicKey(fndsaPK, lmsPK) sk =
-   SerializePrivateKey(fndsaSK, lmsSK)
+   SerializePrivateKey(fndsaSK, lmsSK) ```
 
 4.2.  Sign
 
    Signing follows a similar procedure as in
    [I-D.ietf-lamps-pq-composite-sigs].
 
-   Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
+   ``` Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
 
    Steps:
 
@@ -199,11 +199,11 @@ Table of Contents
    4.  Sign: fndsaSig = FNDSA.Sign(fndsaSK, M') lmsSig = LMS.Sign(lmsSK,
        M')
 
-   5.  Output: s = SerializeSignatureValue(fndsaSig, lmsSig)
+   5.  Output: s = SerializeSignatureValue(fndsaSig, lmsSig) ```
 
 4.3.  Verify
 
-   Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
+   ``` Composite-FNDSA-LMS.Verify(pk, M, s, ctx) -> boolean
 
    Steps:
 
@@ -215,7 +215,7 @@ Table of Contents
    3.  Verify: FNDSA.Verify(fndsaPK, M', fndsaSig) LMS.Verify(lmsPK, M',
        lmsSig)
 
-   Both FNDSA.Verify() and LMS.Verify() MUST verify correctly.
+   Both FNDSA.Verify() and LMS.Verify() MUST verify correctly. ```
 
 4.4.  Serialization of Public and Privates Keys and Sigantures
 
@@ -267,8 +267,8 @@ Table of Contents
 
    *  LMS: LMS_SHA256_M32_H15
 
-   TODO: Define combinations here.  We want to keep the list as small as
-   possible.
+   TODO: Define other combinations here.  We want to keep the list as
+   small as possible.
 
 7.  Security Considerations
 

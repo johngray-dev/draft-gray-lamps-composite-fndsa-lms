@@ -108,10 +108,12 @@ Table of Contents
    The reason for this choice of algorithm combination: - Both FN-DSA
    and LMS are believed to be quantum resistant algorithms (PQ/PQ
    Hybrid). - They use completely different hardness problems (lattice
-   based verses stateful hash based). - FN-DSA can help mitigate the
-   risk of implementation errors leading to state failure in LMS. -
-   Combined together they produce the smallest composite signature in
-   terms of key and signature sizes.
+   based verses stateful hash based). - If relevent attacks or
+   implementations bugs are found in either algorithm there is
+   resiliency. - FN-DSA can help mitigate the risk of operational errors
+   that lead to state failure in LMS. - Combined together they produce a
+   compact PQ/PQ composite signature ideally suited for high value
+   assets in constrained environments.
 
    The composite construction presents a single algorithm interface
    while internally invoking both primitives.
@@ -153,7 +155,8 @@ Table of Contents
    Prefix: Always set to "CompositeAlgorithmSignatures2025" as in
    [I-D.ietf-lamps-pq-composite-sigs].
 
-   Label: Unique per algorithm OID (defined in table below)
+   Label: Unique per algorithm OID (defined in Algorithm Identifier
+   section below)
 
    ctx: Application-defined context (0–255 bytes).
 

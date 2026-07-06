@@ -92,6 +92,10 @@ Table of Contents
      6.1.  id-FNDSA512-LMS-SHA256
      6.2.  id-FNDSA1024-LMS-SHA512
    7.  Security Considerations
+     7.1.  LMS Statefulness Requirement
+     7.2.  Hybrid Security
+     7.3.  SUF-CMA
+     7.4.  Key Reuse
    8.  IANA Considerations
    9.  Normative References
    Acknowledgments
@@ -268,11 +272,37 @@ Table of Contents
 
 7.  Security Considerations
 
-   TODO Security
+7.1.  LMS Statefulness Requirement
+
+   LMS private keys are stateful.
+
+   Each invocation of LMS.Sign MUST use a unique leaf index.  Reuse of a
+   leaf index results in catastrophic loss of security.
+
+7.2.  Hybrid Security
+
+   Composite FN-DSA-LMS is EUF-CMA secure if at least one component
+   remains secure.
+
+7.3.  SUF-CMA
+
+   Composite FN-DSA-LMS is NOT SUF-CMA secure.
+
+7.4.  Key Reuse
+
+   Component keys MUST NOT be reused between:
+
+   *  composite vs standalone
+
+   *  multiple composites
 
 8.  IANA Considerations
 
-   This document has no IANA actions.
+   IANA is requested to assign OIDs under:
+
+   1.3.6.1.5.5.7.6
+
+   TODO for each combination
 
 9.  Normative References
 

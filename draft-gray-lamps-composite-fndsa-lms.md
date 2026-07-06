@@ -48,7 +48,7 @@ informative:
 
 --- abstract
 
-TODO Abstract
+This document defines a composite signature scheme combining the FN-DSA (Falcon) digital signature algorithm with the Leighton-Micali Signature (LMS) scheme defined in RFC 8554. This construction is designed for use within X.509 Public Key Infrastructure (PKI) and follows the composite signature paradigm defined in [I-D.ietf-lamps-pq-composite-sigs].
 
 
 --- middle

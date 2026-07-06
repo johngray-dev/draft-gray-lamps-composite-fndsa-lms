@@ -99,6 +99,56 @@ This is incorporated into the message representative:
 M' := Prefix || Label || len(ctx) || ctx || PH(M)
 ```
 
+## Prefix, Label, and Context
+
+Prefix:
+Always set to "CompositeAlgorithmSignatures2025" as in [I-D.ietf-lamps-pq-composite-sigs].
+
+Label:
+Unique per algorithm OID (defined in table below)
+
+ctx:
+Application-defined context (0–255 bytes).
+
+# Composite Functions
+
+## Key Generation
+
+Composite-FNDSA-LMS.KeyGen() -> (pk, sk)
+
+Steps:
+
+1. Generate component keys:
+
+(fndsaPK, fndsaSK) = FNDSA.KeyGen()
+(lmsPK, lmsSK)     = LMS.KeyGen()
+
+2. Output:
+
+pk = SerializePublicKey(fndsaPK, lmsPK)
+sk = SerializePrivateKey(fndsaSK, lmsSK)
+
+## Sign
+
+Composite-FNDSA-LMS.Sign(sk, M, ctx) -> s
+
+Steps:
+
+1. Check:
+   if len(ctx) > 255: error
+
+2. Compute:
+   M' := Prefix || Label || len(ctx) || ctx || PH(M)
+
+3. Deserialize keys:
+  (fndsaSK, lmsSK) = DeserializePrivateKey(sk)
+
+4. Sign:
+  fndsaSig = FNDSA.Sign(fndsaSK, M')
+  lmsSig   = LMS.Sign(lmsSK, M')
+
+5. Output:
+  s = SerializeSignatureValue(fndsaSig, lmsSig)
 
 
 # Security Considerations
